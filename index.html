@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css\bootstrap.css">
+<style>
+    .over
+    {
+        overflow-y: hidden;
+    }
+
+
+    body
+    {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        
+    }
+    
+    .inz
+    {
+        z-index: 100;
+        position: absolute;
+    }
+    .paralax
+    {
+        position: absolute;
+        top: 0p;
+        width: 100%;
+        left: 0;
+    }
+    .paralax img
+    {
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        left: 0;
+    }
+    #main
+    {
+        position: relative;
+        margin-top: 1041px;
+        bottom: 0px;
+    }
+    .foot
+    {
+        background-color: rgb(67, 67, 67);
+        position: absolute;
+        top: 1600px;
+        height: 450px;
+    }
+
+    
+    
+</style>
+</head>
+<body>
+    <div class="container-fluid bg-light">
+        <div class="row">
+            <nav class="navbar inz px-5 ">
+                <img src="logo.png" alt="logo" width="300px">
+                <center>
+                <a href="#main" class="link-dark"><button class="m-2 btn btn-outline-dark  active">Home</button></a>
+                <a href="#" class="link-dark"><button class="m-2 btn btn-outline-dark">Sign in</button></a>
+                <a href="#" class="link-dark"><button class="m-2 btn btn-outline-dark">Sign up</button></a>
+                <a href="#" class="link-dark"><button class="m-2 btn btn-outline-dark">About</button></a>
+                </center>
+            
+            </nav>
+        </div>
+
+
+        <div class="row" style="height: 30px;"></div>
+
+
+
+
+        
+            <div class="paralax">
+                <img src="logo.png" alt="logo" id="logo" style="transform: translateX(100px);">
+                <img src="mtbg.png" alt="logo" id="mtbg">
+                <img src="mtback.png" alt="logo" id="mtback">
+                <img src="mtfront.png" alt="logo" id="mtfront">
+                <img src="ground 1.png" alt="logo" id="ground1">
+                <img src="ground 3.png" alt="logo" id="ground3">
+                <img src="ground 2.png" alt="logo" id="ground2">
+                <img src="tree1.png" alt="logo" id="tree1">
+                <img src="tree2.png" alt="logo" id="tree2">
+                <img src="tree3.png" alt="logo" id="tree3">
+                <img src="rock.png" alt="rock" id="rock">
+                <img src="grass.png" alt="rock" id="grass">
+            </div>
+        
+    </div>
+ 
+
+
+    
+<div class="container-fluid justify-content-center p-5  bg-black text-white" id="main">
+        <div class="row" style="height: 100px;"></div>
+
+
+
+        <div class="container w-50">
+            <div class="row p-4">
+                <label for="name"><h2>Name</h2></label>
+                <input type="text" id="name">
+            </div>
+            
+            <div class="row p-4">
+                <label for="am"><h2>Amount</h2></label>
+                <input type="number" id = "am">
+            </div>
+            <center>
+            <div class="row p-4">
+                <button id = "btn" class="btn btn-outline-light">Add to roaster</button>
+            </div>
+            
+            
+            <div id = "parent1" class="border-top">
+            </div>
+            
+            
+            <div class="row p-4">
+            
+                <button id = "btn-2" class="btn btn-outline-light">Pick Random</button>
+            
+            </div>
+                
+            
+                <!-- <div class="justify-content-center" id = "parent1" style="border: 5px solid; width: 30%;">
+            
+                </div> -->
+                <br><br>
+                <h1>Winner</h1>
+                <br><br>
+                <div id = "parent2" style="border: 5px solid; width: 30%;" class="rounded-4">
+            <h1 class="justify-content-center" id = "winner">****</h1>
+            <h2 id = "win">$$$$</h2>
+                </div>
+            </center>
+        </div>
+        
+    </div>
+
+    
+</body>
+</html>
+<script>
+
+parent1 = document.getElementById('parent1')
+
+btn = document.getElementById('btn')
+btn.addEventListener('click' , add)
+function add()
+{
+    newH1 = document.createElement('h5')
+    newH1.textContent = document.getElementById('name').value
+
+
+
+    newH2 = document.createElement('h6')
+    newH2.textContent = document.getElementById('am').value
+
+
+
+    br = document.createElement('br')
+
+    
+    parent1.appendChild(newH1)
+    parent1.appendChild(newH2)
+    
+    //breaks
+
+    parent1.appendChild(br)
+    parent1.appendChild(br)
+}
+
+</script>
+
+
+<script>
+
+
+    btn = document.getElementById('btn-2')
+    btn.addEventListener('click' , pick)
+
+
+function pick()
+{
+    all = document.getElementsByTagName('h5')
+    winner = all[Math.floor(Math.random()*all.length)]
+    
+    
+    
+
+
+
+
+
+    money = document.getElementsByTagName('h6')
+
+    sum = 0
+
+    for (cents of money)
+        {
+            sum +=  parseInt((cents.textContent))
+        }
+
+
+   
+
+    document.getElementById('winner').innerHTML = winner.textContent
+    document.getElementById('win').innerHTML = sum
+
+    
+    
+   
+}
+
+</script>
+
+
+
+
+<script>
+    
+
+logo = document.getElementById('logo');
+mtbg = document.getElementById('mtbg');
+mtback = document.getElementById('mtback');
+mtfront = document.getElementById('mtfront');
+ground1 = document.getElementById('ground1');
+ground2 = document.getElementById('ground2');
+ground3 = document.getElementById('ground3');
+tree1 = document.getElementById('tree1');
+tree2 = document.getElementById('tree2');
+tree3 = document.getElementById('tree3');
+rock = document.getElementById('rock');
+grass = document.getElementById('grass');
+main = document.getElementById('main');
+body = document.getElementsByTagName('body')
+
+
+// didnt work
+window.scrollBy(0,-10);
+
+
+maxScroll = 4000;
+
+window.addEventListener('scroll' , limit)
+
+
+function limit()
+{
+    if (window.scrollY > maxScroll) {
+    window.scrollTo(0, maxScroll);
+  }
+}
+
+
+
+
+window.addEventListener('scroll' , scroll)
+
+
+
+function scroll()
+{
+    value = window.scrollY;
+    val = value
+   if (value < 500)
+    {
+        val = value
+
+        logo.style.top = val*0.1 + 'px';
+    mtbg.style.top = val*-0.1 + 'px';
+    mtback.style.top = val*-0.15 + 'px';
+    mtfront.style.top = val*-0.17 + 'px';
+    ground3.style.top = val*-0.3 + 'px';
+    ground2.style.top = val*-0.7 + 'px';
+    main.style.top = val*-0.7 + 'px';
+    ground1.style.top = val*-0.4 + 'px';
+    tree3.style.top = val*-0.25 + 'px';
+    tree2.style.top = val*-0.3 + 'px';
+    tree1.style.top = val*-0.6 + 'px';
+    rock.style.top = val*-0.7 + 'px';
+    grass.style.top = val*-0.7 + 'px';
+    console.log(value) 
+    }
+    else 
+    {
+        window.removeEventListener('scroll')
+        document.getElementsByClassName('paralax').remove()
+    }
+    
+    
+}
+
+</script>
